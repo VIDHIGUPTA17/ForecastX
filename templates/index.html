@@ -1,0 +1,120 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+        .card {
+            border-radius: 15px;
+        }
+        .btn-primary {
+            width: 100%;
+            font-weight: 600;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">📈 Sales Prediction Tool</h3>
+                    <form method="POST" novalidate>
+                        <div class="mb-3">
+                            <label for="store_nbr" class="form-label">Store Number</label>
+                            <input type="number" name="store_nbr" class="form-control" id="store_nbr" required min="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="family" class="form-label">Family</label>
+                            <select name="family" id="family" class="form-select" required>
+                                <option value="" disabled selected>Select a Family</option>
+                                <option>AUTOMOTIVE</option>
+                                <option>BABY CARE</option>
+                                <option>BEAUTY</option>
+                                <option>BEVERAGES</option>
+                                <option>BOOKS</option>
+                                <option>BREAD/BAKERY</option>
+                                <option>CELEBRATION</option>
+                                <option>CLEANING</option>
+                                <option>DAIRY</option>
+                                <option>DELI</option>
+                                <option>EGGS</option>
+                                <option>FROZEN FOODS</option>
+                                <option>GROCERY I</option>
+                                <option>GROCERY II</option>
+                                <option>HARDWARE</option>
+                                <option>HOME AND KITCHEN I</option>
+                                <option>HOME AND KITCHEN II</option>
+                                <option>HOME APPLIANCES</option>
+                                <option>HOME CARE</option>
+                                <option>LADIESWEAR</option>
+                                <option>LAWN AND GARDEN</option>
+                                <option>LINGERIE</option>
+                                <option>LIQUOR,WINE,BEER</option>
+                                <option>MAGAZINES</option>
+                                <option>MEATS</option>
+                                <option>PERSONAL CARE</option>
+                                <option>PET SUPPLIES</option>
+                                <option>PLAYERS AND ELECTRONICS</option>
+                                <option>POULTRY</option>
+                                <option>PREPARED FOODS</option>
+                                <option>PRODUCE</option>
+                                <option>SCHOOL AND OFFICE SUPPLIES</option>
+                                <option>SEAFOOD</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="onpromotion" class="form-label">On Promotion (0 or 1)</label>
+                            <input type="number" name="onpromotion" class="form-control" id="onpromotion" required min="0" max="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dcoilwtico" class="form-label">Oil Price</label>
+                            <input type="number" step="0.01" name="dcoilwtico" class="form-control" id="dcoilwtico" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="transactions" class="form-label">Transactions</label>
+                            <input type="number" name="transactions" class="form-control" id="transactions" required min="0">
+                        </div>
+                        <div class="mb-3">
+                            <label for="weekday" class="form-label">Weekday (0 = Mon, 6 = Sun)</label>
+                            <input type="number" name="weekday" class="form-control" id="weekday" required min="0" max="6">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lag_1" class="form-label">Lag 1</label>
+                            <input type="number" step="0.01" name="lag_1" class="form-control" id="lag_1" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="rolling_mean_7" class="form-label">Rolling Mean (7 days)</label>
+                            <input type="number" step="0.01" name="rolling_mean_7" class="form-control" id="rolling_mean_7" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">🔍 Predict Sales</button>
+                    </form>
+
+                    {% if prediction is not none %}
+                    <div class="alert alert-success text-center mt-4" role="alert">
+                        <h5 class="mb-0">Predicted Sales: <strong>{{ prediction }}</strong></h5>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
