@@ -72,19 +72,15 @@ Or retrain the model using Untitled.ipynb
 
 Place it in the root folder after obtaining:
 
-Copy code
+
 ForecastX/
 ├── train_X.pkl  ← Place it here
 🚀 Run the Application
 bash
-Copy code
 python app.py
 Visit http://127.0.0.1:5000/ in your browser.
 
-📸 Screenshots
-Home Page
 
-Add your screenshot here by uploading it to a screenshots/ folder and updating the link above.
 
 🧠 Model Training Workflow
 Load and preprocess data (Untitled.ipynb)
@@ -123,15 +119,4 @@ Add retraining interface for updated data
 
 Deploy on Heroku or Streamlit Cloud
 
-yaml
-Copy code
 
----
-
-## ✅ What You Should Do Now
-
-1. Place this README as `README.md` in the root of your GitHub repo.
-2. Create a `screenshots/` folder and upload app screenshots if you want to show UI.
-3. If `train_X.pkl` is sensitive or large, provide a **Google Drive link** or ask users to retrain.
-
-Let me know if you want a deployment guide (e.g., Streamlit Cloud, Render, or Hugging
